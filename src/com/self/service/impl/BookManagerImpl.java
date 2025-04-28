@@ -38,7 +38,7 @@ public class BookManagerImpl implements BookManager{
 	}
 
 	@Override
-	public void deleteBook(int isbn) {
+	public void deleteBook(int isbn) { //박성우
 		int find = -1;
 		if(idx==0) return;
 		for(int i=0; i<idx; i++) {
@@ -58,7 +58,7 @@ public class BookManagerImpl implements BookManager{
 	}
 
 	@Override
-	public void updateBook(Book book) {
+	public void updateBook(Book book) {//박성우
 		for(Book b : books) {
 			if(b==null) break;
 			if(b.getIsbn() == book.getIsbn()) {
@@ -107,7 +107,7 @@ public class BookManagerImpl implements BookManager{
 	}
 
 	@Override
-	public Book[] searchBookByTitle(String title) {
+	public Book[] searchBookByTitle(String title) {//박성우
 		Book[] temp = new Book[idx];
 		int idx2= 0;
 		for(int i=0; i<idx; i++) {
@@ -120,7 +120,7 @@ public class BookManagerImpl implements BookManager{
 	}
 
 	@Override
-	public Book[] searchBookByPrice(double min, double max) {
+	public Book[] searchBookByPrice(double min, double max) {//박성우
 		Book[] temp = new Book[idx];
 		int idx2 = 0;
 		for(int i=0; i<idx; i++) {
@@ -200,7 +200,7 @@ public class BookManagerImpl implements BookManager{
 		return genre;
 	}
 	@Override
-	public Book[] magazineOfThisYearInfo() {//테스트
+	public Book[] magazineOfThisYearInfo() {//박성우
 		return null;
 	}
 	
