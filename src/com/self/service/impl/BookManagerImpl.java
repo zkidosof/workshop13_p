@@ -10,7 +10,7 @@ import com.self.vo.Novel;
 
 public class BookManagerImpl implements BookManager{
 	private Book[] books;
-	// private ArrayList<Book> bookList = new ArrayList<Book>();
+	// private List<Book> bookList = new List<Book>();
 	public static final int MAX_SIZE = 100;
 	private int idx;
 	private int numberOfBook; // 총 입고된 책의 수량 등으로 활용할 수 있음
@@ -19,7 +19,7 @@ public class BookManagerImpl implements BookManager{
 	private static BookManagerImpl service = new BookManagerImpl();
 	private BookManagerImpl() {
 		books = new Book[MAX_SIZE];
-		// bookList = new ArrayList<Book>();
+		// bookList = new List<Book>();
 	}
 	public static BookManagerImpl getInstance() {
 		return service;
