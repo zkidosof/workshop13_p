@@ -200,7 +200,7 @@ public class BookManagerImpl implements BookManager{
 		return genre;
 	}
 	@Override
-	public Book[] magazineOfThisYearInfo() {//박성우
+	public Book[] magazineOfThisYearInfo() {//박성우//k-15 테스트
 		return null;
 	}
 	
