@@ -201,7 +201,6 @@ public class BookManagerImpl implements BookManager{
 	}
 	@Override
 	public Book[] magazineOfThisYearInfo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
