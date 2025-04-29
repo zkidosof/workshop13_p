@@ -19,8 +19,8 @@ public class BookManagerTest {
 		service.insertBook(new Novel(100, "작별하지않는다", "한강", "출판사1", 16000.0, "한국소설"));
 		service.insertBook(new Novel(101, "소년이온다", "한강", "출판사1", 15000.0, "한국소설"));
 		service.insertBook(new Novel(151, "해리포터1", "조앤K롤링", "출판사2", 17000.0, "해외소설"));
-		service.insertBook(new Novel(152, "해리포터2", "조앤K롤링", "출판사2", 17000.0, "해외소설"));
-		service.insertBook(new Novel(153, "해리포터3", "조앤K롤링", "출판사2", 17000.0, "해외소설"));
+		service.insertBook(new Novel(152, "해리포터3", "조앤K롤링", "출판사2", 17000.0, "해외소설"));
+		service.insertBook(new Novel(153, "해리포터2", "조앤K롤링", "출판사2", 17000.0, "해외소설"));
 		service.insertBook(new Magazine(201, "ELLE", "작가", "출판사10", 5000.0, new Date(2025,02)));
 		service.insertBook(new Magazine(202, "ELLE", "작가", "출판사10", 5000.0, new Date(2025,02)));
 		service.insertBook(new Magazine(203, "ELLE", "작가", "출판사10", 5000.0, new Date(2025,03)));
@@ -55,16 +55,19 @@ public class BookManagerTest {
 		System.out.println(service.getAllBook());
 		System.out.println("현재 책의 수는 "+service.getNumberOfBooks()+"권입니다.");
 	
+		System.out.println("====1번째 정렬====");
 		// getBook() 반환받은 데이터 Title 기준 오름차순 정렬
 		ArrayList<Book> list1 = service.getAllBook();
-//		Collections.sort(list1, new Comparator<Book>() {
-//			public String compare(Book b1, Book b2) {
-//				retrun b1.getTitle() - b2.getTitle();
-//			}
-//		Collections.sort(list1, (b1, b2) -> b1.getTitle() - b2.getTitle());
-//		});
+		Collections.sort(list1, new Comparator<Book>() {
+			@Override
+			public int compare(Book o1, Book o2) {
+				return o1.getTitle().compareTo(o2.getTitle());
+			}
+		});
+		for(Book b:list1)
+			System.out.println(b);
 			
-		
+		System.out.println("====2번째 정렬====");
 		// magazineOfThisYearInfo() 반환받은 데이터를 잡지 월 기준으로 내림차순 정렬
 		ArrayList<Book> list2 = service.magazineOfThisYearInfo();
 		Collections.sort(list2, new Comparator<Book>() {
