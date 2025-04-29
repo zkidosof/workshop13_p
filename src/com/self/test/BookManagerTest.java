@@ -23,7 +23,7 @@ public class BookManagerTest {
 		service.insertBook(new Magazine(204, "ELLE", "작가", "출판사10", 5000.0, new Date(2025,04)));
 		
 		System.out.println("현재 책 목록입니다.");
-		System.out.println(Arrays.toString(service.getAllBook()));
+		System.out.println(service.getAllBook());
 		System.out.println("현재 책의 수는 "+service.getNumberOfBooks()+"권입니다.");
 		
 		System.out.println("isbn=100인 책을 검색합니다.");
@@ -33,10 +33,10 @@ public class BookManagerTest {
 		service.updateBook(new Magazine(201, "ELLE", "작가", "출판사11", 5000.0, new Date(2025,01)));
 		
 		System.out.println("ELLE라는 제목으로 책을 검색합니다.");
-		System.out.println(Arrays.toString(service.searchBookByTitle("ELLE")));
+		System.out.println(service.searchBookByTitle("ELLE"));
 		
 		System.out.println("10000.0원~15000.0원 사이의 책을 검색합니다.");
-		System.out.println(Arrays.toString(service.searchBookByPrice(10000.0, 15000.0)));
+		System.out.println(service.searchBookByPrice(10000.0, 15000.0));
 		
 		System.out.println("전체 책의 가격 총합 : "+service.getSumPriceOfBooks()+"원");
 		System.out.println("전체 책의 가격 평균 : "+service.getAvgPriceOfBooks()+"원");
@@ -48,7 +48,7 @@ public class BookManagerTest {
 		service.deleteBook(101);
 		
 		System.out.println("현재 책 목록입니다.");
-		System.out.println(Arrays.toString(service.getAllBook()));
+		System.out.println(service.getAllBook());
 		System.out.println("현재 책의 수는 "+service.getNumberOfBooks()+"권입니다.");
 	}
 }
