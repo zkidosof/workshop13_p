@@ -206,7 +206,7 @@ public class BookManagerImpl implements BookManager{
 		int thisYear = c.get(Calendar.YEAR);
 		ArrayList<Book> temp = new ArrayList<Book>();
 		for(Book b:bookList) {
-			if(((Magazine) b).getPublishDate().getYear() == thisYear)
+			if(b instanceof Magazine && ((Magazine) b).getPublishDate().getYear() == thisYear)
 				temp.add(b);
 		}
 		return temp;
