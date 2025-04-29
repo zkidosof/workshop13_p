@@ -1,9 +1,13 @@
 package com.self.test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 import com.self.service.impl.BookManagerImpl;
 import com.self.util.Date;
+import com.self.vo.Book;
 import com.self.vo.Magazine;
 import com.self.vo.Novel;
 
@@ -50,5 +54,26 @@ public class BookManagerTest {
 		System.out.println("현재 책 목록입니다.");
 		System.out.println(service.getAllBook());
 		System.out.println("현재 책의 수는 "+service.getNumberOfBooks()+"권입니다.");
+	
+		// getBook() 반환받은 데이터 Title 기준 오름차순 정렬
+		ArrayList<Book> list1 = service.getAllBook();
+//		Collections.sort(list1, new Comparator<Book>() {
+//			public String compare(Book b1, Book b2) {
+//				retrun b1.getTitle() - b2.getTitle();
+//			}
+//		Collections.sort(list1, (b1, b2) -> b1.getTitle() - b2.getTitle());
+//		});
+			
+		
+		// magazineOfThisYearInfo() 반환받은 데이터를 잡지 월 기준으로 내림차순 정렬
+		ArrayList<Book> list2 = service.magazineOfThisYearInfo();
+		Collections.sort(list2, new Comparator<Book>() {
+			@Override
+			public int compare(Book o1, Book o2) {
+				return ((Magazine) o2).getPublishDate().getMonth() - ((Magazine) o1).getPublishDate().getMonth();
+		}});
+		for(Book b:list2)
+			System.out.println(b);
+	
 	}
 }
